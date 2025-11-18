@@ -1,0 +1,631 @@
+/* Navbar brand hover */
+.navbar-brand:hover {
+  color: #ffc107 !important;
+  transition: 0.3s ease;
+}
+
+/* Search bar styling */
+.search-form input {
+  width: 320px;
+  border-radius: 50px;
+  padding-left: 15px;
+}
+
+.search-form button {
+  border-radius: 50px;
+}
+
+/* Buttons */
+.login-btn1 {
+  border-radius: 50px;
+  transition: 0.3s;
+}
+
+.login-btn1:hover {
+  background-color: #ffc107;
+  color: #212529 !important;
+}
+
+.register-btn {
+  border-radius: 50px;
+  transition: 0.3s;
+}
+
+.register-btn:hover {
+  background-color: #ffc107;
+  color: #212529 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .search-form {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .search-form input {
+    width: 100%;
+  }
+
+  .navbar-nav {
+    text-align: center;
+  }
+
+  .navbar-nav .nav-item {
+    margin: 5px 0;
+  }
+}
+
+/* Full-screen carousel slides */
+.banner-slide {
+  position: relative;
+  height: 550px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Overlay for readability */
+.banner-slide::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1;
+}
+
+/* Text inside banner */
+.banner-text {
+  position: relative;
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.banner-text h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.banner-text p {
+  font-size: 1.25rem;
+  margin-top: 10px;
+}
+
+/* Responsive font size */
+@media (max-width: 768px) {
+  .banner-text h1 {
+    font-size: 2rem;
+  }
+
+  .banner-text p {
+    font-size: 1rem;
+  }
+}
+
+/* Carousel Controls */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  padding: 10px;
+}
+
+/* Indicators */
+.carousel-indicators [data-bs-target] {
+  background-color: #ffc107;
+}
+
+
+
+/* Login Page Styling */
+body{
+  background: linear-gradient(135deg, #212529, #343a40);
+  min-height: 100vh;
+
+}
+
+
+.login-container {
+  width: 100%;
+  max-width: 420px;
+  padding: 20px;
+}
+
+.login-card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 30px;
+  color: #212529;
+  transition: 0.3s;
+}
+
+.login-card:hover {
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Headings */
+.login-card h2 {
+  color: #212529;
+  font-weight: 700;
+}
+
+/* Form fields */
+.form-group label {
+  font-weight: 500;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.form-group input {
+  width: 100%;
+  border-radius: 50px;
+  border: 1px solid #ccc;
+  padding: 10px 15px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.form-group input:focus {
+  border-color: #ffc107;
+  box-shadow: 0 0 5px rgba(255, 193, 7, 0.5);
+}
+
+/* Buttons */
+.login-btn {
+  border-radius: 50px;
+  background-color: #6c757d;
+  color: #fff;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.login-btn:hover {
+  background-color: #ffc107;
+  color: #212529 !important;
+}
+
+/* Register link */
+.register-link {
+  color: #ffc107;
+  font-weight: 500;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+  color: #e0a800;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .login-card {
+    padding: 20px;
+  }
+
+  .login-card h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Footer Styling */
+.footer {
+  background: #212529; /* matches your dark gradient theme */
+  color: #fff;
+}
+
+.footer-brand {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffc107; /* yellow highlight */
+}
+
+.footer-text {
+  color: #ddd;
+  line-height: 1.6;
+}
+
+.footer-heading {
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #ffc107; /* yellow headings */
+}
+
+/* Footer Links */
+/* Force remove default link styling */
+.footer-links a {
+  color: #ddd !important;
+  text-decoration: none !important;
+  font-weight: 500;
+  display: inline-block;
+  padding: 3px 0;
+  position: relative;
+  transition: 0.3s;
+}
+
+/* Remove visited blue underline */
+.footer-links a:visited {
+  color: #ddd !important;
+  text-decoration: none !important;
+}
+
+/* Hover */
+.footer-links a:hover {
+  color: #ffc107 !important;
+  text-decoration: none !important;
+}
+
+/* Yellow underline animation */
+.footer-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 0%;
+  height: 2px;
+  background-color: #ffc107;
+  transition: width 0.25s ease-in-out;
+}
+
+.footer-links a:hover::after {
+  width: 100%;
+}
+
+/* Social Icons */
+.footer-social a {
+  color: #fff;
+  font-size: 1.1rem;
+  margin-right: 12px;
+  transition: 0.3s;
+}
+
+.footer-social a:hover {
+  color: #ffc107; /* yellow hover */
+}
+
+/* Bottom text */
+.footer-bottom {
+  font-size: 0.9rem;
+  color: #bbb;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer {
+    text-align: center;
+  }
+
+  .footer-social a {
+    margin: 0 8px;
+  }
+}
+
+
+
+/* ----------------------------- */
+/* TUTOR JOIN PAGE STYLING       */
+/* ----------------------------- */
+
+.tutor-title {
+    color: #ffc107;
+    font-weight: 700;
+    font-size: 2.5rem;
+}
+
+.tutor-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-top: 15px;
+    opacity: 0.95;
+}
+
+.tutor-benefits {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 15px;
+}
+
+.tutor-benefits li {
+    margin-bottom: 10px;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+}
+
+.tutor-benefits li i {
+    color: #ffc107;
+    margin-right: 8px;
+    font-size: 1.2rem;
+}
+
+.highlight {
+    color: #ffc107;
+    font-weight: 600;
+}
+
+.tutor-footer-text {
+    margin-top: 20px;
+    opacity: 0.9;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .tutor-title {
+        font-size: 2rem;
+    }
+    .tutor-description {
+        font-size: 1rem;
+    }
+}
+
+.fancy-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffc107;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 8px;
+}
+
+.fancy-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40%;
+    height: 3px;
+    background-color: #ffc107;
+    transition: 0.3s ease;
+}
+
+.fancy-title:hover::after {
+    width: 100%;
+}
+
+/* TUTOR HOME LAYOUT */
+.tutor-home-container {
+    display: flex;
+    min-height: 90vh;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* LEFT SIDEBAR */
+.tutor-sidebar {
+    width: 15%;
+    background: #212529;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.1);
+    height: 90vh;
+    position: sticky;
+    top: 80px;
+}
+
+.sidebar-title {
+    color: #ffc107;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding-left: 0;
+}
+
+.sidebar-menu li {
+    margin: 12px 0;
+}
+
+.sidebar-link {
+    color: #f8f9fa;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 10px;
+    display: block;
+    border-radius: 8px;
+    transition: .3s;
+}
+
+.sidebar-link:hover {
+    background: #ffc107;
+    color: #212529 !important;
+}
+
+/* MAIN CONTENT AREA */
+.tutor-main {
+    width: 85%;
+}
+
+.course-card {
+    background: #343a40;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 330px;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: .3s;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.25);
+}
+
+.course-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.course-body {
+    padding: 15px;
+}
+
+.course-title {
+    color: #ffc107;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.course-desc {
+    color: #ddd;
+    margin: 10px 0;
+}
+
+.course-btn {
+    border-radius: 50px;
+    font-weight: 600;
+}
+
+
+
+/* SIMPLE UPLOAD COURSE FORM */
+.upload-form {
+    background: #212529;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 0 10px rgba(255,255,255,0.15);
+}
+
+/* Title */
+.upload-title {
+    color: #ffc107;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Input fields (crispy forms) */
+.upload-form .form-control {
+    background: #343a40;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+}
+
+.upload-form .form-control:focus {
+    border-color: #ffc107;
+    box-shadow: 0 0 5px rgba(255,193,7,0.3);
+}
+
+/* Label */
+.upload-form label {
+    color: #ffc107;
+    font-weight: 500;
+}
+
+/* Button */
+.upload-btn {
+    background: #ffc107;
+    color: #212529;
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+.upload-btn:hover {
+    background: #e0a800;
+}
+
+
+
+/* Tutor Profile Container */
+.tutor-profile-container {
+  background-color: #212529;
+  padding: 40px 20px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.3);
+}
+
+/* Tutor Name */
+.tutor-name {
+  color: #ffc107;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+/* Profile Image */
+.tutor-img-wrapper {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #ffc107;
+  box-shadow: 0px 0px 10px rgba(255,193,7,0.6);
+}
+
+.tutor-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Tutor Info Box */
+.tutor-info-box {
+  background: #343a40;
+  border-radius: 15px;
+  color: #ddd;
+  border-left: 4px solid #ffc107;
+}
+
+.tutor-description {
+  line-height: 1.6;
+  color: #ccc;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .tutor-img-wrapper {
+    width: 150px;
+    height: 150px;
+  }
+
+  .tutor-info-box {
+    margin-top: 20px;
+  }
+}
+
+
+/* Edit Profile Button */
+.edit-profile-btn {
+  background-color: #343a40;
+  color: #ffc107;
+  padding: 8px 18px;
+  border-radius: 50px;
+  border: 2px solid #ffc107;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.edit-profile-btn:hover {
+  background-color: #ffc107;
+  color: #212529 !important;
+}
+
+

@@ -1,0 +1,59 @@
+# ---------------------------
+# Python
+# ---------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.DS_Store
+
+# ---------------------------
+# Virtual environment
+# ---------------------------
+venv/
+.venv/
+ENV/
+env/
+
+# ---------------------------
+# Django
+# ---------------------------
+*.log
+*.pot
+*.pyc
+*.pid
+
+# Local SQLite DB (if exists)
+db.sqlite3
+
+# Media uploads
+media/
+
+# Static build files (if collected)
+staticfiles/
+
+# ---------------------------
+# Environment variables
+# ---------------------------
+.env
+*.env
+
+# ---------------------------
+# IDE-specific files
+# ---------------------------
+
+# VS Code
+.vscode/
+
+# JetBrains PyCharm
+.idea/
+
+# ---------------------------
+# OS files
+# ---------------------------
+Thumbs.db
+
+# ---------------------------
+# PostgreSQL credentials (optional folder)
+# ---------------------------
+*.pgpass

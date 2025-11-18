@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+
+<div class="d-flex  py-5 tutor-join-container justify-content-center align-items-center">
+
+
+    <!-- RIGHT SIDE : Tutor Form -->
+    <div class="d-flex align-items-center justify-content-center animate-fade row">
+      <div class="login-card col-10 ">
+          <h1 class="fancy-title">Edit Profile</h1>
+
+
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{ form|crispy }}
+
+          <button type="submit" class="btn login-btn w-100 mt-3">
+            SUBMIT
+          </button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}

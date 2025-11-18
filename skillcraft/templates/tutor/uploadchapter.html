@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+
+<div class="container py-5 tutor-join-container">
+
+  <div class="row align-items-center text-light">
+
+    <!-- LEFT SIDE : About Section -->
+    <div class="col-lg-6 mb-4 animate-fade">
+      <h1 class="fw-bold tutor-title">Course Structure</h1>
+
+      <p class="tutor-description">
+This is how your chapters and modules will appear to users so create it accordingly
+      </p>
+
+
+      <p>
+
+  <button class="btn btn-warning w-100" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    <div class="d-flex justify-content-between">
+      <h5>Chapter-1</h5> <i class="fa-solid fa-caret-down"></i>
+      </div>
+  </button>
+</p>
+<div class="collapse" id="collapseExample">
+<a class="btn btn-secondary w-100">Module-1</a>
+  <a class="btn btn-secondary w-100 mt-2">Module-2</a>
+</div>
+
+
+      <p class="tutor-footer-text">
+        Ready to inspire the next generation?
+        Fill out the form and join our expert community today!
+      </p>
+    </div>
+
+    <!-- RIGHT SIDE : Tutor Form -->
+    <div class="col-lg-6 animate-fade">
+      <div class="login-card w-100">
+          <h1 class="fancy-title">Upload Chapter</h1>
+
+
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{ form|crispy }}
+
+          <button type="submit" class="btn login-btn w-100 mt-3">
+            SUBMIT
+          </button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}

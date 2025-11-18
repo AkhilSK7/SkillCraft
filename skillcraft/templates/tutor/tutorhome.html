@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="tutor-home-container">
+
+    <aside class="tutor-sidebar">
+        <h2 class="sidebar-title">Tutor Panel</h2>
+
+        <ul class="sidebar-menu">
+            <li><a href="{% url 'tutor:tutorprofile' %}" class="sidebar-link">👤 Profile</a></li>
+            <li><a href="{% url 'tutor:uploadcourse' %}" class="sidebar-link">📚 Upload Course</a></li>
+            <li><a href="#" class="sidebar-link">🎥 My Videos</a></li>
+            <li><a href="#" class="sidebar-link">⭐ Reviews</a></li>
+            <li><a href="#" class="sidebar-link">⚙ Settings</a></li>
+        </ul>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="tutor-main">
+
+        <h2 class="fancy-title">Your Courses</h2>
+{% if courses%}
+        {% for i in courses %}
+        <div class="course-card">
+            <img src="{{ i.thumbnail.url }}" class="course-image" alt="Course Image">
+            <div class="course-body">
+                <h3 class="course-title">{{i.course_name}}</h3>
+                <p class="course-desc">{{i.description}}</p>
+
+                <a href="#" class="btn btn-warning course-btn">Manage Course</a>
+            </div>
+        </div>
+        {% endfor %}
+{% else %}
+                    <div class="course-body">
+                <h3 class="course-title">You don't have any courses</h3>
+            </div>
+        {% endif %}
+    </main>
+
+</div>
+
+{% endblock %}

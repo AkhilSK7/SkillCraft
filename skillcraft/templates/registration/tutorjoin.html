@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+
+<div class="container py-5 tutor-join-container">
+
+  <div class="row align-items-center text-light">
+
+    <!-- LEFT SIDE : About Section -->
+    <div class="col-lg-6 mb-4 animate-fade">
+      <h1 class="fw-bold tutor-title">Become A Tutor</h1>
+
+      <p class="tutor-description">
+        Share your knowledge with thousands of learners!
+        As a tutor at <span class="highlight">SkillCraft</span>,
+        you’ll get the freedom to teach anytime, earn from your expertise,
+        and inspire students across the globe.
+      </p>
+
+      <ul class="tutor-benefits">
+        <li><i class="fa fa-check-circle"></i> Earn by teaching your favourite skills</li>
+        <li><i class="fa fa-check-circle"></i> Flexible timings & complete freedom</li>
+        <li><i class="fa fa-check-circle"></i> Impact thousands of students</li>
+        <li><i class="fa fa-check-circle"></i> Build your personal teaching brand</li>
+      </ul>
+
+      <p class="tutor-footer-text">
+        Ready to inspire the next generation?
+        Fill out the form and join our expert community today!
+      </p>
+    </div>
+
+    <!-- RIGHT SIDE : Tutor Form -->
+    <div class="col-lg-6 animate-fade">
+      <div class="login-card w-100">
+          <h1 class="fancy-title">Become a SkillCraft Tutor</h1>
+
+
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{ form|crispy }}
+
+          <button type="submit" class="btn login-btn w-100 mt-3">
+            SUBMIT
+          </button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}
+
