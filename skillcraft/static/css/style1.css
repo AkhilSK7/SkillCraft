@@ -1,10 +1,10 @@
-/* Navbar brand hover */
+
 .navbar-brand:hover {
   color: #ffc107 !important;
   transition: 0.3s ease;
 }
 
-/* Search bar styling */
+
 .search-form input {
   width: 320px;
   border-radius: 50px;
@@ -15,7 +15,7 @@
   border-radius: 50px;
 }
 
-/* Buttons */
+
 .login-btn1 {
   border-radius: 50px;
   transition: 0.3s;
@@ -56,7 +56,7 @@
   }
 }
 
-/* Full-screen carousel slides */
+
 .banner-slide {
   position: relative;
   height: 550px;
@@ -65,7 +65,7 @@
   background-repeat: no-repeat;
 }
 
-/* Overlay for readability */
+
 .banner-slide::before {
   content: "";
   position: absolute;
@@ -75,7 +75,7 @@
   z-index: 1;
 }
 
-/* Text inside banner */
+
 .banner-text {
   position: relative;
   z-index: 2;
@@ -96,7 +96,7 @@
   margin-top: 10px;
 }
 
-/* Responsive font size */
+
 @media (max-width: 768px) {
   .banner-text h1 {
     font-size: 2rem;
@@ -107,7 +107,7 @@
   }
 }
 
-/* Carousel Controls */
+
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   background-color: rgba(0, 0, 0, 0.4);
@@ -115,14 +115,14 @@
   padding: 10px;
 }
 
-/* Indicators */
+
 .carousel-indicators [data-bs-target] {
   background-color: #ffc107;
 }
 
 
 
-/* Login Page Styling */
+/* Login Page  */
 body{
   background: linear-gradient(135deg, #212529, #343a40);
   min-height: 100vh;
@@ -148,13 +148,13 @@ body{
   box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* Headings */
+
 .login-card h2 {
   color: #212529;
   font-weight: 700;
 }
 
-/* Form fields */
+
 .form-group label {
   font-weight: 500;
   margin-bottom: 5px;
@@ -175,7 +175,7 @@ body{
   box-shadow: 0 0 5px rgba(255, 193, 7, 0.5);
 }
 
-/* Buttons */
+
 .login-btn {
   border-radius: 50px;
   background-color: #6c757d;
@@ -189,7 +189,7 @@ body{
   color: #212529 !important;
 }
 
-/* Register link */
+
 .register-link {
   color: #ffc107;
   font-weight: 500;
@@ -202,7 +202,7 @@ body{
   color: #e0a800;
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 576px) {
   .login-card {
     padding: 20px;
@@ -213,16 +213,16 @@ body{
   }
 }
 
-/* Footer Styling */
+
 .footer {
-  background: #212529; /* matches your dark gradient theme */
+  background: #212529;
   color: #fff;
 }
 
 .footer-brand {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #ffc107; /* yellow highlight */
+  color: #ffc107;
 }
 
 .footer-text {
@@ -233,11 +233,10 @@ body{
 .footer-heading {
   font-weight: 600;
   margin-bottom: 15px;
-  color: #ffc107; /* yellow headings */
+  color: #ffc107;
 }
 
-/* Footer Links */
-/* Force remove default link styling */
+
 .footer-links a {
   color: #ddd !important;
   text-decoration: none !important;
@@ -248,19 +247,19 @@ body{
   transition: 0.3s;
 }
 
-/* Remove visited blue underline */
+
 .footer-links a:visited {
   color: #ddd !important;
   text-decoration: none !important;
 }
 
-/* Hover */
+
 .footer-links a:hover {
   color: #ffc107 !important;
   text-decoration: none !important;
 }
 
-/* Yellow underline animation */
+
 .footer-links a::after {
   content: "";
   position: absolute;
@@ -276,7 +275,7 @@ body{
   width: 100%;
 }
 
-/* Social Icons */
+
 .footer-social a {
   color: #fff;
   font-size: 1.1rem;
@@ -285,16 +284,16 @@ body{
 }
 
 .footer-social a:hover {
-  color: #ffc107; /* yellow hover */
+  color: #ffc107;
 }
 
-/* Bottom text */
+
 .footer-bottom {
   font-size: 0.9rem;
   color: #bbb;
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
   .footer {
     text-align: center;
@@ -307,9 +306,7 @@ body{
 
 
 
-/* ----------------------------- */
-/* TUTOR JOIN PAGE STYLING       */
-/* ----------------------------- */
+
 
 .tutor-title {
     color: #ffc107;
@@ -355,7 +352,7 @@ body{
     line-height: 1.6;
 }
 
-/* Fade-in animation */
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -371,7 +368,7 @@ body{
     animation: fadeInUp 0.8s ease forwards;
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
     .tutor-title {
         font-size: 2rem;
@@ -406,7 +403,7 @@ body{
     width: 100%;
 }
 
-/* TUTOR HOME LAYOUT */
+
 .tutor-home-container {
     display: flex;
     min-height: 90vh;
@@ -414,7 +411,7 @@ body{
     gap: 20px;
 }
 
-/* LEFT SIDEBAR */
+
 .tutor-sidebar {
     width: 15%;
     background: #212529;
@@ -458,7 +455,29 @@ body{
     color: #212529 !important;
 }
 
-/* MAIN CONTENT AREA */
+@media (max-width: 768px) {
+
+    .tutor-home-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .tutor-sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+        top: 0;
+        border-radius: 10px;
+    }
+
+    .tutor-main {
+        width: 100%;
+    }
+}
+
+
+
 .tutor-main {
     width: 85%;
 }
@@ -505,7 +524,7 @@ body{
 
 
 
-/* SIMPLE UPLOAD COURSE FORM */
+
 .upload-form {
     background: #212529;
     border-radius: 12px;
@@ -513,14 +532,14 @@ body{
     box-shadow: 0 0 10px rgba(255,255,255,0.15);
 }
 
-/* Title */
+
 .upload-title {
     color: #ffc107;
     font-weight: 600;
     text-align: center;
 }
 
-/* Input fields (crispy forms) */
+
 .upload-form .form-control {
     background: #343a40;
     border-radius: 8px;
@@ -533,13 +552,12 @@ body{
     box-shadow: 0 0 5px rgba(255,193,7,0.3);
 }
 
-/* Label */
 .upload-form label {
     color: #ffc107;
     font-weight: 500;
 }
 
-/* Button */
+
 .upload-btn {
     background: #ffc107;
     color: #212529;
@@ -553,7 +571,7 @@ body{
 
 
 
-/* Tutor Profile Container */
+
 .tutor-profile-container {
   background-color: #212529;
   padding: 40px 20px;
@@ -561,14 +579,14 @@ body{
   box-shadow: 0px 4px 15px rgba(0,0,0,0.3);
 }
 
-/* Tutor Name */
+
 .tutor-name {
   color: #ffc107;
   font-weight: 700;
   font-size: 2rem;
 }
 
-/* Profile Image */
+
 .tutor-img-wrapper {
   width: 180px;
   height: 180px;
@@ -585,7 +603,7 @@ body{
   object-fit: cover;
 }
 
-/* Tutor Info Box */
+
 .tutor-info-box {
   background: #343a40;
   border-radius: 15px;
@@ -598,7 +616,6 @@ body{
   color: #ccc;
 }
 
-/* Mobile Responsive */
 @media (max-width: 768px) {
   .tutor-img-wrapper {
     width: 150px;
@@ -611,7 +628,7 @@ body{
 }
 
 
-/* Edit Profile Button */
+
 .edit-profile-btn {
   background-color: #343a40;
   color: #ffc107;
@@ -629,3 +646,134 @@ body{
 }
 
 
+
+
+
+.manage-course-container {
+    background: #212529;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0px 3px 18px rgba(0,0,0,0.3);
+}
+
+
+.course-thumb-wrapper {
+    width: 100%;
+    height: 500px;
+}
+
+.course-thumb-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+
+}
+
+
+
+.course-title {
+    color: #ffc107;
+    font-weight: 700;
+}
+.course-price {
+    color: #fff;
+    background: #343a40;
+    padding: 8px 18px;
+    border-radius: 8px;
+    border: 2px solid #ffc107;
+    font-weight: 700;
+}
+
+
+.course-box {
+    background: #343a40;
+    border-radius: 12px;
+    color: #ddd;
+    border-left: 4px solid #ffc107;
+}
+.course-desc {
+    color: #ccc;
+    line-height: 1.6;
+}
+
+
+.chapter-btn {
+    background: #343a40;
+    color: #ffc107;
+    font-weight: 600;
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.15);
+    transition: 0.3s;
+}
+.chapter-btn:hover {
+    background: #ffc107;
+    color: #212529 !important;
+}
+
+
+.module-btn {
+    background: #212529;
+    color: #ddd;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.15);
+}
+.module-btn:hover {
+    background: #ffc107;
+    color: #212529 !important;
+}
+
+
+.module-row {
+    position: relative;
+}
+.module-actions {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.edit-icon {
+    color: #ffc107;
+    cursor: pointer;
+    transition: .3s;
+}
+.edit-icon:hover {
+    color: #e0a800;
+}
+.delete-icon {
+    color: #ff5c5c;
+    cursor: pointer;
+    transition: .3s;
+}
+.delete-icon:hover {
+    color: #ff1f1f;
+}
+
+
+.course-sidebar {
+    background: #343a40;
+    border-radius: 12px;
+    color: #ddd;
+    border: 1px solid rgba(255,255,255,0.15);
+}
+.edit-course-btn {
+    background: #ffc107;
+    color: #212529;
+    font-weight: 600;
+}
+.edit-course-btn:hover {
+    background: #e0a800;
+}
+
+
+@media (max-width: 768px) {
+    .course-thumb-wrapper {
+        height: 220px;
+    }
+    .course-title {
+        font-size: 1.6rem;
+    }
+}

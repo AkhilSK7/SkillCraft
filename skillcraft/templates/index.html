@@ -1,20 +1,20 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <!-- Carousel Start -->
+
   <div id="mainBanner" class="carousel slide" data-bs-ride="carousel">
 
-    <!-- Indicators -->
+
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#mainBanner" data-bs-slide-to="0" class="active"></button>
       <button type="button" data-bs-target="#mainBanner" data-bs-slide-to="1"></button>
       <button type="button" data-bs-target="#mainBanner" data-bs-slide-to="2"></button>
     </div>
 
-    <!-- Slides -->
+
     <div class="carousel-inner">
 
-      <!-- Slide 1 -->
+
       <div class="carousel-item active banner-slide" style="background-image: url('{% static "images/banner-1.jpg" %}');">
         <div class="banner-text text-center text-white">
           <h1>Learn New Skills</h1>
@@ -23,7 +23,7 @@
         </div>
       </div>
 
-      <!-- Slide 2 -->
+
       <div class="carousel-item banner-slide" style="background-image: url('{% static "images/banner-2.jpg" %}');">
         <div class="banner-text text-center text-white">
           <h1>Teach Your Skills</h1>
@@ -32,7 +32,6 @@
         </div>
       </div>
 
-      <!-- Slide 3 -->
       <div class="carousel-item banner-slide" style="background-image: url('{% static "images/banner-3.jpg" %}');">
         <div class="banner-text text-center text-white">
           <h1>Boost Your Career</h1>
@@ -43,7 +42,7 @@
 
     </div>
 
-    <!-- Controls -->
+
     <button class="carousel-control-prev" type="button" data-bs-target="#mainBanner" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     </button>

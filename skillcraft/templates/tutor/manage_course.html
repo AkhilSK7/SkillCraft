@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container manage-course-container mt-5 mb-5">
+
+
+    <div class="course-thumb-wrapper mb-4">
+        <img src="{{ course.thumbnail.url }}" class="course-thumb img-fluid " alt="Course Thumbnail">
+    </div>
+
+
+    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
+        <h2 class="course-title m-0">{{ course.course_name }}</h2>
+        <h3 class="course-price m-0">₹{{ course.price }}</h3>
+    </div>
+
+    <div class="row">
+
+
+        <div class="col-md-8">
+
+            <div class="course-box mb-4 p-4">
+                <h4 class="text-warning mb-3">Course Description</h4>
+                <p class="course-desc">
+                    {{ course.description }}
+                </p>
+            </div>
+
+
+            <h4 class="text-warning mb-3">Chapters & Modules</h4>
+
+            {% for chapter in course.chapters.all %}
+            <div class="chapter-box mb-3">
+
+
+                <button class="btn chapter-btn w-100 d-flex justify-content-between align-items-center"
+                        type="button" data-bs-toggle="collapse"
+                        data-bs-target="#chapter{{ chapter.id }}">
+                    <span>{{ chapter.chapter_name }}</span>
+
+                    <span>
+                        <a href="{% url 'tutor:editchapter' chapter.id%}"><i class="fa-solid fa-pen-to-square edit-icon me-3"></i></a>
+                        <a href="{% url 'tutor:deletechapter' chapter.id%}"><i class="fa-solid fa-trash delete-icon me-3"></i></a>
+                        <i class="fa-solid fa-caret-down"></i>
+                    </span>
+                </button>
+
+
+                <div class="collapse" id="chapter{{ chapter.id }}">
+                    {% for module in chapter.modules.all %}
+                    <div class="module-row d-flex justify-content-between align-items-center mt-2">
+                        <a class="btn module-btn w-100 text-start">{{ module.module_name }}</a>
+
+                        <span class="module-actions">
+                            <a href="{% url 'tutor:editmodule' module.id%}"><i class="fa-solid fa-pen-to-square edit-icon"></i></a>
+                            <a href="{% url 'tutor:deletemodule' module.id%}"><i class="fa-solid fa-trash delete-icon ms-3"></i></a>
+                        </span>
+                    </div>
+                    {% endfor %}
+
+
+                    <a class="btn add-module-btn btn-secondary w-100 mt-3" href="{% url 'tutor:uploadmodule' chapter.id %}">
+                        <i class="fa-solid fa-plus me-2"></i>Add Module
+                    </a>
+
+                </div>
+
+            </div>
+            {% endfor %}
+
+
+                        <a class="btn btn-warning w-100 mt-4 add-chapter-btn" href="{% url 'tutor:uploadchapter' course.id %}">
+                <i class="fa-solid fa-plus me-2"></i>Add Chapter
+            </a>
+
+        </div>
+
+
+
+        <div class="col-md-4 mt-4 mt-md-0">
+            <div class="course-sidebar p-4">
+
+                <h4 class="text-warning mb-4">Course Details</h4>
+
+                <p><strong class="text-warning">Category:</strong> {{ course.category }}</p>
+                <p><strong class="text-warning">Level:</strong> {{ course.level }}</p>
+                <p><strong class="text-warning">Language:</strong> {{ course.language }}</p>
+                <p><strong class="text-warning">Students:</strong> {{ course.students }}</p>
+
+                <a href="#" class="btn edit-course-btn w-100 mt-3">
+                    <i class="fa-solid fa-pen-to-square me-2"></i>Edit Course
+                </a>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -10,10 +10,10 @@ class CourseForm(ModelForm):
 class ChapterForm(ModelForm):
     class Meta:
         model=Chapter
-        fields='__all__'
+        fields=['chapter_name']
 
 class ModuleForm(ModelForm):
     class Meta:
         model=Module
-        fields='__all__'
+        fields=['module_name','video','document']
 

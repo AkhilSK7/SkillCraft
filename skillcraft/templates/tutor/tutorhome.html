@@ -5,7 +5,7 @@
 <div class="tutor-home-container">
 
     <aside class="tutor-sidebar">
-        <h2 class="sidebar-title">Tutor Panel</h2>
+        <h2 class="sidebar-title ">Tutor Panel</h2>
 
         <ul class="sidebar-menu">
             <li><a href="{% url 'tutor:tutorprofile' %}" class="sidebar-link">👤 Profile</a></li>
@@ -16,7 +16,7 @@
         </ul>
     </aside>
 
-    <!-- MAIN CONTENT -->
+
     <main class="tutor-main">
 
         <h2 class="fancy-title">Your Courses</h2>
@@ -28,7 +28,7 @@
                 <h3 class="course-title">{{i.course_name}}</h3>
                 <p class="course-desc">{{i.description}}</p>
 
-                <a href="#" class="btn btn-warning course-btn">Manage Course</a>
+                <a href="{% url 'tutor:managecourse' i.id %}" class="btn btn-warning course-btn">Manage Course</a>
             </div>
         </div>
         {% endfor %}

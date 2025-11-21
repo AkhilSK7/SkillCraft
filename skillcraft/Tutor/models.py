@@ -30,13 +30,17 @@ class Course(models.Model):
     thumbnail=models.ImageField(upload_to='course_thumbnails')
     offer=models.IntegerField(null=True,blank=True)
 
+    def __str__(self):
+        return self.course_name
 class Chapter(models.Model):
-    course=models.ForeignKey(Course,on_delete=models.CASCADE)
+    course=models.ForeignKey(Course,on_delete=models.CASCADE,related_name='chapters')
     chapter_name=models.CharField(max_length=30)
 
+    def __str__(self):
+        return self.chapter_name
 
 class Module(models.Model):
-    chapter=models.ForeignKey(Chapter,on_delete=models.CASCADE)
+    chapter=models.ForeignKey(Chapter,on_delete=models.CASCADE,related_name='modules')
     module_name=models.CharField(max_length=30)
     video=models.FileField(upload_to='course_videos',blank=True,null=True)
     document=models.FileField(upload_to='course_documents',blank=True,null=True)
@@ -44,3 +48,8 @@ class Module(models.Model):
     def clean(self):
         if not self.video and not self.document:
             raise ValidationError("Please upload atleast one file:Video or Pdf")
+        if self.video and self.document:
+            raise ValidationError("Please upload any one file:Video or pdf")
+
+    def __str__(self):
+        return self.module_name
