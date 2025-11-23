@@ -24,6 +24,10 @@
                 <p class="course-desc">
                     {{ course.description }}
                 </p>
+                <h4 class="text-warning mb-3">Prerequisites</h4>
+                <p class="course-desc">
+                    {{ course.prerequisite }}
+                </p>
             </div>
 
 
@@ -39,8 +43,8 @@
                     <span>{{ chapter.chapter_name }}</span>
 
                     <span>
-                        <a href="{% url 'tutor:editchapter' chapter.id%}"><i class="fa-solid fa-pen-to-square edit-icon me-3"></i></a>
-                        <a href="{% url 'tutor:deletechapter' chapter.id%}"><i class="fa-solid fa-trash delete-icon me-3"></i></a>
+                        <a href="{% url 'tutor:editchapter' user_id=request.user.id id=chapter.id%}"><i class="fa-solid fa-pen-to-square edit-icon me-3"></i></a>
+                        <a href="{% url 'tutor:deletechapter' user_id=request.user.id id=chapter.id%}"><i class="fa-solid fa-trash delete-icon me-3"></i></a>
                         <i class="fa-solid fa-caret-down"></i>
                     </span>
                 </button>
@@ -52,14 +56,14 @@
                         <a class="btn module-btn w-100 text-start">{{ module.module_name }}</a>
 
                         <span class="module-actions">
-                            <a href="{% url 'tutor:editmodule' module.id%}"><i class="fa-solid fa-pen-to-square edit-icon"></i></a>
-                            <a href="{% url 'tutor:deletemodule' module.id%}"><i class="fa-solid fa-trash delete-icon ms-3"></i></a>
+                            <a href="{% url 'tutor:editmodule' user_id=request.user.id id=module.id%}"><i class="fa-solid fa-pen-to-square edit-icon"></i></a>
+                            <a href="{% url 'tutor:deletemodule' user_id=request.user.id id=module.id%}"><i class="fa-solid fa-trash delete-icon ms-3"></i></a>
                         </span>
                     </div>
                     {% endfor %}
 
 
-                    <a class="btn add-module-btn btn-secondary w-100 mt-3" href="{% url 'tutor:uploadmodule' chapter.id %}">
+                    <a class="btn add-module-btn btn-secondary w-100 mt-3" href="{% url 'tutor:uploadmodule' user_id=request.user.id id=chapter.id %}">
                         <i class="fa-solid fa-plus me-2"></i>Add Module
                     </a>
 
@@ -69,7 +73,7 @@
             {% endfor %}
 
 
-                        <a class="btn btn-warning w-100 mt-4 add-chapter-btn" href="{% url 'tutor:uploadchapter' course.id %}">
+                        <a class="btn btn-warning w-100 mt-4 add-chapter-btn" href="{% url 'tutor:uploadchapter' user_id=request.user.id id=course.id %}">
                 <i class="fa-solid fa-plus me-2"></i>Add Chapter
             </a>
 
@@ -84,10 +88,10 @@
 
                 <p><strong class="text-warning">Category:</strong> {{ course.category }}</p>
                 <p><strong class="text-warning">Level:</strong> {{ course.level }}</p>
-                <p><strong class="text-warning">Language:</strong> {{ course.language }}</p>
+                <p><strong class="text-warning">Rating:</strong> {{ course.rating }}</p>
                 <p><strong class="text-warning">Students:</strong> {{ course.students }}</p>
 
-                <a href="#" class="btn edit-course-btn w-100 mt-3">
+                <a href="{% url 'tutor:editcourse' user_id=request.user.id id=course.id %}" class="btn edit-course-btn w-100 mt-3">
                     <i class="fa-solid fa-pen-to-square me-2"></i>Edit Course
                 </a>
 

@@ -12,7 +12,7 @@
         <h2 class="tutor-name m-0">{{ tutor.name }} </h2>
 
 
-        <a href="{% url 'tutor:edittutor' %}" class="edit-profile-btn">
+        <a href="{% url 'tutor:edittutor' user_id=request.user.id %}" class="edit-profile-btn">
             <i class="fas fa-edit me-2"></i>Edit Profile
         </a>
     </div>

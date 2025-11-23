@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('users.urls')),
     path('accounts/', include('allauth.urls')),
-    path('tutor/',include('Tutor.urls'))
+    path('tutor/<int:user_id>/',include('Tutor.urls'))
 ]
 
 if settings.DEBUG:
