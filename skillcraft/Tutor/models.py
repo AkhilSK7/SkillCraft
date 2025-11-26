@@ -30,6 +30,11 @@ class Course(models.Model):
     thumbnail=models.ImageField(upload_to='course_thumbnails')
     offer=models.IntegerField(null=True,blank=True)
 
+    def discounted_price(self):
+        if not self.offer:
+            return self.price
+        return int(self.price - (self.price * self.offer / 100))
+
     def __str__(self):
         return self.course_name
 class Chapter(models.Model):

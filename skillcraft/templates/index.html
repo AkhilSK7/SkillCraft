@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 
-  <div id="mainBanner" class="carousel slide" data-bs-ride="carousel">
+  <div id="mainBanner" class="carousel slide mt-3 border border-warning shadow-lg " data-bs-ride="carousel">
 
 
     <div class="carousel-indicators">
@@ -12,44 +12,138 @@
     </div>
 
 
-    <div class="carousel-inner">
+<div class="carousel-inner">
 
-
-      <div class="carousel-item active banner-slide" style="background-image: url('{% static "images/banner-1.jpg" %}');">
-        <div class="banner-text text-center text-white">
-          <h1>Learn New Skills</h1>
-          <p>Discover courses that prepare you for real-world success.</p>
-          <a href="#" class="btn btn-warning px-4 py-2 mt-3">Start Learning</a>
+  <!-- Slide 1 -->
+  <div class="carousel-item active banner-slide">
+    <div class="row banner-row">
+      <div class="col-md-6 d-flex j align-items-center text-white banner-left">
+        <div class="banner-text ms-5">
+          <h1>Start Learning Today.</h1>
+          <p>Start small, <br>stay consistent, <br>and let every skill push you forward..</p>
+            {% if user.is_authenticated %}
+          <a href="#categories" class="btn btn-warning px-4 py-2 mt-3">Start Learning</a>
+            {% else %}
+             <a href="{% url 'users:login' %}" class="btn btn-warning px-4 py-2 mt-3">Start Learning</a>
+            {% endif %}
         </div>
       </div>
 
+      <div class="col-md-6 banner-right">
+        <img src="{% static 'images/banner-1.jpg' %}" class="banner-img " alt="">
+      </div>
+    </div>
+  </div>
 
-      <div class="carousel-item banner-slide" style="background-image: url('{% static "images/banner-2.jpg" %}');">
-        <div class="banner-text text-center text-white">
+  <!-- Slide 2 -->
+  <div class="carousel-item banner-slide">
+    <div class="row banner-row">
+      <div class="col-md-6 d-flex align-items-center text-white banner-left">
+        <div class="banner-text ms-5">
           <h1>Teach Your Skills</h1>
-          <p>Share your knowledge and inspire others to grow.</p>
-          <a href="#" class="btn btn-warning  px-4 py-2 mt-3">Become an Instructor</a>
+          <p>If you’re so good at it,<br>prove it… by teaching the rest of us.</p>
+            {% if user.is_tutor %}
+          <a href="{% url 'tutor:tutorhome' user.id %}" class="btn btn-warning px-4 py-2 mt-3">Start Teaching</a>
+            {% elif user.is_authenticated %}
+            <a href="{% url 'users:tutorjoin' %}" class="btn btn-warning px-4 py-2 mt-3">Become an Instructor</a>
+            {% else %}
+            <a href="{% url 'users:login' %}" class="btn btn-warning px-4 py-2 mt-3">Become an Instructor</a>
+            {% endif %}
         </div>
       </div>
 
-      <div class="carousel-item banner-slide" style="background-image: url('{% static "images/banner-3.jpg" %}');">
-        <div class="banner-text text-center text-white">
-          <h1>Boost Your Career</h1>
-          <p>Learn in-demand skills and achieve your career goals.</p>
+      <div class="col-md-6 banner-right">
+        <img src="{% static 'images/banner-2.jpg' %}" class="banner-img" alt="">
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 3 -->
+  <div class="carousel-item banner-slide">
+    <div class="row banner-row">
+      <div class="col-md-6 d-flex align-items-center text-white banner-left">
+        <div class="banner-text ms-5">
+          <h1>Craft Your Skills.<br> Shape Your Future</h1>
+          <p>Feeling stuck in today’s job market? SkillCraft helps you learn the skills that employers are looking for—quickly and confidently.</p>
           <a href="#" class="btn btn-warning px-4 py-2 mt-3">Join Now</a>
         </div>
       </div>
 
+      <div class="col-md-6 banner-right">
+        <img src="{% static 'images/banner-3.jpg' %}" class="banner-img" alt="">
+      </div>
     </div>
+  </div>
+
+</div>
 
 
-    <button class="carousel-control-prev" type="button" data-bs-target="#mainBanner" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#mainBanner" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    </button>
+
+
 
   </div>
+
+
+<div class="container-fluid px-3" id="categories">
+    <h1 class="fw-bold tutor-title m-2">Trending Categories</h1>
+
+    <div class="row mt-4">
+
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 ">
+            <div class="category-card">
+                <img src="{% static 'images/finance.jpg' %}" class="category-image" alt="Category Image">
+                <div class="category-body">
+                    <h3 class="category-title">FINANCE</h3>
+                    <p class="category-desc">Grow Wealth With Strategy</p>
+                    <a href="{% url 'courses:category' slug='finance' %}" class="btn btn-warning course-btn">SEE COURSES</a>
+                </div>
+            </div>
+        </div>
+
+
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 ">
+            <div class="category-card">
+                <img src="{% static 'images/IT&SOFTWARE.jpg'  %}" class="category-image" alt="Category Image">
+                <div class="category-body">
+                    <h3 class="category-title">IT & SOFTWARE</h3>
+                    <p class="category-desc">Become an IT professional</p>
+                    <a href="{% url 'courses:category' slug='it_software' %}" class="btn btn-warning course-btn">SEE COURSES</a>
+                </div>
+            </div>
+        </div>
+
+
+
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 ">
+            <div class="category-card">
+                <img src="{% static 'images/music.jpg' %}" class="category-image" alt="Category Image">
+                <div class="category-body">
+                    <h3 class="category-title">MUSIC</h3>
+                    <p class="category-desc">Learn. Create. Perform.</p>
+                    <a href="#" class="btn btn-warning course-btn">SEE COURSES</a>
+                </div>
+            </div>
+        </div>
+
+
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 ">
+            <div class="category-card">
+                <img src="{% static 'images/personaldevelopment.jpg' %}" class="category-image" alt="Category Image">
+                <div class="category-body">
+                    <h3 class="category-title">PERSONALITY DEVELOPMENT</h3>
+                    <p class="category-desc">Build a Better You</p>
+                    <a href="#" class="btn btn-warning course-btn">IT & SOFTWARE</a>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+
+
+
 
 {% endblock %}

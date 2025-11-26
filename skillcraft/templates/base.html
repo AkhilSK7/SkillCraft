@@ -27,8 +27,8 @@
       </button>
 
       <div class="collapse navbar-collapse justify-content-between" id="navbarContent">
-        <form class="d-flex mx-auto search-form">
-          <input class="form-control me-2" type="search" placeholder="Search courses, topics..." aria-label="Search">
+        <form class="d-flex mx-auto search-form" method="get" action="{% url 'courses:search' %}">
+          <input class="form-control me-2" name='q' type="search" placeholder="Search courses, topics..." aria-label="Search">
           <button class="btn btn-outline-light" type="submit">Search</button>
         </form>
 

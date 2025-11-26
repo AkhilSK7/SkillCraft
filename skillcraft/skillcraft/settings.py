@@ -46,8 +46,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'users',
-    'Tutor',
     'crispy_forms',
     'crispy_bootstrap5',
     'django.contrib.sites',
@@ -55,6 +53,9 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'users',
+    'Tutor',
+    'courses'
 ]
 LOGIN_REDIRECT_URL='/'
 LOGOUT_REDIRECT_URL='/'
