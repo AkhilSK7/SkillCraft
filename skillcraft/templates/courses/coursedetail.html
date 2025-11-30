@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 {% block content %}
 <div class="container manage-course-container mt-5 mb-5">
 
@@ -57,18 +58,47 @@
                     {% for module in chapter.modules.all %}
                     <div class="module-row d-flex justify-content-between align-items-center mt-2">
                         {% if not module.video %}
-                        <a  href="{{module.document.url}}" download class="btn module-btn w-100 text-start">{{ module.module_name }}</a>
+                        <a  href="{{module.document.url}}" download class="btn module-btn w-100 text-start" >{{ module.module_name }}</a>
                         {% else %}
-                        <a href="{% url 'courses:video' cid=course.id mid=module.id %}" class="btn module-btn w-100 text-start">{{ module.module_name }}</a>
+                        <a href="{% url 'courses:video' cid=course.id mid=module.id %}" class="btn module-btn w-100 text-start" >{{ module.module_name }}</a>
                         {% endif %}
                     </div>
                     {% endfor %}
+
+
 
 
                 </div>
 
             </div>
             {% endfor %}
+<h4 class="text-warning mt-5 mb-3">Student Reviews</h4>
+
+<div class="reviews-box p-4">
+
+    {% if reviews %}
+        {% for review in reviews %}
+            <div class="review-item p-3 mb-3 border rounded">
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <strong class="text-warning">{{ review.user.username }}</strong>
+                    <span class="review-rating text-white">
+                        ⭐ {{ review.rating }}/5
+                    </span>
+                </div>
+
+                <p class=" text-white mt-2 mb-1">{{ review.comments }}</p>
+
+                <small class=" text-white">
+                    {{ review.created_at|date:"M d, Y" }}
+                </small>
+
+            </div>
+        {% endfor %}
+    {% else %}
+        <p class="text-white">No reviews yet for this course.</p>
+    {% endif %}
+</div>
 
 
         </div>
@@ -83,12 +113,24 @@
                 <p><strong class="text-warning">Category:</strong> {{ course.category }}</p>
                 <p><strong class="text-warning">Tutor:</strong> {{ course.Tutor.name }}</p>
                 <p><strong class="text-warning">Rating:</strong> {{ course.rating }}</p>
-                <p><strong class="text-warning">Students:</strong> {{ course.students }}</p>
+                <p><strong class="text-warning">Students:</strong> {{ students }}</p>
+{% if not is_enrolled %}
 
-                <a href="#" class="btn edit-course-btn w-100 mt-3">
+                <a href="{% url 'courses:enroll' course.id %}" class="btn edit-course-btn w-100 mt-3">
                     Buy Course
                 </a>
+{% endif %}
+                {% if form %}
+                <h3 class="text-warning text-center">Leave your impression</h3>
+                <div class="d-flex justify-content-center align-items-center text-center border">
 
+                    <form method="post">
+                    {% csrf_token %}
+                    {{form|crispy}}
+                    <input type="submit" class="btn btn-warning">
+                        </form>
+                </div>
+                {% endif %}
             </div>
         </div>
 

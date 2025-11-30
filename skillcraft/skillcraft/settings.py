@@ -62,21 +62,27 @@ LOGOUT_REDIRECT_URL='/'
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'  # Example: Gmail SMTP server
+EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER =os.getenv("EMAIL_HOST_USER") # Your email address
-EMAIL_HOST_PASSWORD =os.getenv("EMAIL_HOST_PASSWORD")# Your email password (use app)
+EMAIL_HOST_USER =os.getenv("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD =os.getenv("EMAIL_HOST_PASSWORD")
 
 
-# --- Allauth behaviour tuning ---
+
 ACCOUNT_EMAIL_VERIFICATION = "none"
 ACCOUNT_EMAIL_REQUIRED = False
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = "email"
-ACCOUNT_SIGNUP_ALLOWED = False  # Prevent Allauth from showing its own signup
-SOCIALACCOUNT_AUTO_SIGNUP = True  # Automatically create user when using Google
-SOCIALACCOUNT_LOGIN_ON_GET = True  # 👈 Directly redirect to Google without intermediate page
+ACCOUNT_SIGNUP_ALLOWED = False
+SOCIALACCOUNT_AUTO_SIGNUP = True
+SOCIALACCOUNT_LOGIN_ON_GET = True
+
+
+RAZORPAY_ID=os.getenv("RAZORPAY_ID")
+RAZORPAY_KEY=os.getenv("RAZORPAY_KEY")
+
+
 
 
 MIDDLEWARE = [
@@ -103,6 +109,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
             ],
         },
     },

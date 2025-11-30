@@ -849,4 +849,19 @@ body{
     display: block;
 }
 
+.reviews-box {
+    background-color: #111;
+    border: 1px solid #333;
+    border-radius: 8px;
+}
+
+.review-item {
+    background-color: #1a1a1a;
+}
+
+.review-rating {
+    color: gold;
+    font-weight: bold;
+}
+
 

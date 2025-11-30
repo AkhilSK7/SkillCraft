@@ -36,6 +36,7 @@
 
             {% if user.is_authenticated %}
                      <li class="nav-item"><a class="nav-link btn btn-outline-light px-3 me-1 login-btn1" href="{% url 'users:logout' %}">Logout</a></li>
+                              <li class="nav-item"><a class="nav-link btn btn-outline-light px-3 me-1 login-btn1" href="{% url 'courses:enrolledcourses' %}">Your Courses</a></li>
             {% if not user.is_tutor %}
                     <li class="nav-item"><a class="nav-link btn btn-outline-light px-3 me-1 login-btn1" href="{% url 'users:tutorjoin' %}">Teach on SkillCraft</a></li>
             {% else %}

@@ -25,7 +25,6 @@ class Course(models.Model):
     description=models.CharField(max_length=200)
     prerequisite=models.CharField(max_length=200)
     rating=models.DecimalField(max_digits=2,decimal_places=1,blank=True,null=True)
-    review=models.CharField(max_length=300,blank=True,null=True)
     price=models.IntegerField()
     thumbnail=models.ImageField(upload_to='course_thumbnails')
     offer=models.IntegerField(null=True,blank=True)
