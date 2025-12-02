@@ -1,4 +1,3 @@
-from idlelib.debugobj import dispatch
 
 from django.shortcuts import render, get_object_or_404,redirect
 from django.views.generic import ListView,DetailView
@@ -16,6 +15,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin
 from courses.forms import ReviewForm
 from courses.models import Review
 from django.conf import settings
+from django.http import Http404, FileResponse
+import os
 
 
 class EnrolledUserMixin(LoginRequiredMixin,UserPassesTestMixin):
@@ -52,22 +53,24 @@ class SearchView(ListView):
 
 class CourseDetailView(View):
     def dispatch(self, request, *args, **kwargs):
-        self.c=Course.objects.get(id=kwargs['pk'])
+        self.c=Course.objects.get(id=kwargs['id'])
         return super().dispatch(request,*args,**kwargs)
 
-    def get(self, request, pk):
+    def get(self, request, id):
         reviews = Review.objects.filter(course=self.c)
         students=Enroll.objects.filter(course=self.c,is_enrolled=True).count()
+        context = {"course": self.c, "reviews": reviews, "students": students}
         if request.user.is_authenticated:
             is_enrolled = Enroll.objects.filter(course=self.c,user=request.user,is_enrolled=True).exists()
+            context["is_enrolled"]=is_enrolled
+            has_reviewed = Review.objects.filter(course=self.c, user=request.user).exists()
+            if is_enrolled and not has_reviewed:
+                context["form"] = ReviewForm()
         else:
             is_enrolled = False
-        context = {"course": self.c,"reviews": reviews,"is_enrolled": is_enrolled,"students":students}
-        has_reviewed = Review.objects.filter(course=self.c, user=request.user).exists()
-        if is_enrolled and not has_reviewed:
-            context["form"] = ReviewForm()
+            context["is_enrolled"] = is_enrolled
         return render(request, "courses/coursedetail.html", context)
-    def post(self,request, pk):
+    def post(self,request, id):
         form_instance=ReviewForm(request.POST)
         if form_instance.is_valid():
             c=form_instance.save(commit=False)
@@ -86,6 +89,18 @@ class PlayvideoView(EnrolledUserMixin,View):
         m=Module.objects.get(id=mid)
         context={'course':self.c,'module':m}
         return render(request,'courses/coursedetail.html',context)
+
+class DownloadDocumentView(EnrolledUserMixin, View):
+    def get(self, request, cid, mid):
+        module = get_object_or_404(Module, id=mid)
+        file_path = module.document.path
+        file_name = os.path.basename(file_path)
+        return FileResponse(
+            open(file_path, 'rb'),
+            as_attachment=True,
+            filename=file_name
+        )
+
 
 class EnrollView(View):
     def get(self,request,id):

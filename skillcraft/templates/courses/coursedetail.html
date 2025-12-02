@@ -58,7 +58,7 @@
                     {% for module in chapter.modules.all %}
                     <div class="module-row d-flex justify-content-between align-items-center mt-2">
                         {% if not module.video %}
-                        <a  href="{{module.document.url}}" download class="btn module-btn w-100 text-start" >{{ module.module_name }}</a>
+                        <a  href="{% url 'courses:document' cid=course.id mid=module.id %}"  class="btn module-btn w-100 text-start" >{{ module.module_name }}</a>
                         {% else %}
                         <a href="{% url 'courses:video' cid=course.id mid=module.id %}" class="btn module-btn w-100 text-start" >{{ module.module_name }}</a>
                         {% endif %}

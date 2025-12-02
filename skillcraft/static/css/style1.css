@@ -1,4 +1,6 @@
 
+
+
 .navbar-brand:hover {
   color: #ffc107 !important;
   transition: 0.3s ease;
@@ -138,7 +140,8 @@
 body{
   background: linear-gradient(135deg, #212529, #343a40);
   min-height: 100vh;
-
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -229,6 +232,9 @@ body{
 .footer {
   background: #212529;
   color: #fff;
+    position: relative;
+    margin-top: auto;
+   width:100%
 }
 
 .footer-brand {
