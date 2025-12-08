@@ -38,7 +38,7 @@
   color: #212529 !important;
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 992px) {
   .search-form {
     width: 100%;
@@ -57,6 +57,8 @@
     margin: 5px 0;
   }
 }
+
+
 
 
 
@@ -122,6 +124,8 @@
   }
 }
 
+
+
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   background-color: rgba(0, 0, 0, 0.4);
@@ -131,7 +135,7 @@
 
 
 .carousel-indicators [data-bs-target] {
-  background-color: #ffc107;
+  background-color: #000;
 }
 
 

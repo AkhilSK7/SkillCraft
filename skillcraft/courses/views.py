@@ -41,6 +41,14 @@ class CategoryView(ListView):
         slug=self.kwargs.get('slug')
         return Course.objects.filter(category=slug)
 
+class OfferProductsView(ListView):
+    model=Course
+    template_name='courses/courses.html'
+    paginate_by = 10
+    context_object_name = "course_list"
+    def get_queryset(self):
+        return Course.objects.filter(offer__gt=0)
+
 class SearchView(ListView):
     model=Course
     template_name = 'courses/courses.html'

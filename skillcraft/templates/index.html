@@ -2,7 +2,8 @@
 {% load static %}
 {% block content %}
 
-  <div id="mainBanner" class="carousel slide mt-3 border border-warning shadow-lg " data-bs-ride="carousel">
+
+  <div id="mainBanner" class="carousel slide mt-3 rounded-4 shadow-lg" data-bs-ride="carousel">
 
 
     <div class="carousel-indicators">
@@ -63,20 +64,19 @@
     <div class="row banner-row">
       <div class="col-md-6 d-flex align-items-center text-white banner-left">
         <div class="banner-text ms-5">
-          <h1>Craft Your Skills.<br> Shape Your Future</h1>
-          <p>Feeling stuck in today’s job market? SkillCraft helps you learn the skills that employers are looking for—quickly and confidently.</p>
-          <a href="#" class="btn btn-warning px-4 py-2 mt-3">Join Now</a>
+          <h1>Learn More, <br> Pay Less</h1>
+          <p>Get premium courses at special discounted prices—upgrade your skills without breaking your budget.</p>
+          <a href="{% url 'courses:offer' %}" class="btn btn-danger btn-lg px-4 py-2 mt-3">View Offers</a>
         </div>
       </div>
 
       <div class="col-md-6 banner-right">
-        <img src="{% static 'images/banner-3.jpg' %}" class="banner-img" alt="">
+        <img src="{% static 'images/offer.png' %}" class="banner-img" alt="">
       </div>
     </div>
   </div>
 
 </div>
-
 
 
 
