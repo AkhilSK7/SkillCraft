@@ -10,9 +10,8 @@
         <ul class="sidebar-menu">
             <li><a href="{% url 'tutor:tutorprofile' user_id=request.user.id  %}" class="sidebar-link">👤 Profile</a></li>
             <li><a href="{% url 'tutor:uploadcourse' user_id=request.user.id %}" class="sidebar-link">📚 Upload Course</a></li>
-            <li><a href="#" class="sidebar-link">🎥 My Videos</a></li>
-            <li><a href="#" class="sidebar-link">⭐ Reviews</a></li>
-            <li><a href="#" class="sidebar-link">⚙ Settings</a></li>
+            <li><a href="{% url 'tutor:tutorreviews' user_id=request.user.id %}" class="sidebar-link">⭐ Reviews</a></li>
+            <li><a href="{% url 'chat:tutor_chat_list'%}" class="sidebar-link"><i class="fa-solid fa-message"></i>Chat</a></li>
         </ul>
     </aside>
 

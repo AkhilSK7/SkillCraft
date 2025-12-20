@@ -1,23 +1,43 @@
 {% extends 'base.html' %}
-
 {% block content %}
 
-<div class="container mt-4 text-light">
-    <h2>Chat Page</h2>
+<div class="chat-page">
 
-    <p><strong>Room ID:</strong> {{ room.id }}</p>
-    <p><strong>Tutor Name:</strong> {{ tutor.name }}</p>
-    <p><strong>Tutor Username:</strong> {{ tutor.user.username }}</p>
+    <div class="chat-box mb-3">
+
+
+        <div class="chat-header">
+            <div>
+                <strong>Room:</strong> {{ room.id }}
+            </div>
+            <div>
+                <strong >Student:</strong> {{ student.username }}
+
+                <strong class="ms-2">Tutor:</strong> {{ tutor.username }}
+            </div>
+        </div>
+
+
+        <div id="chat-box" class="chat-messages">
+            {% for msg in messages %}
+                <div class="chat-message">
+                    <span class="sender">{{ msg.sender.username }}</span>
+                    <span class="text">{{ msg.message }}</span>
+                </div>
+            {% empty %}
+                <p class="empty">No messages yet.</p>
+            {% endfor %}
+        </div>
+
+
+        <div class="chat-input">
+            <input type="text" id="chat-input" placeholder="Type a message...">
+            <button id="chat-send">Send</button>
+        </div>
+
+    </div>
 
 </div>
-
-<div id="chat-box" class="text-light" style="margin-top:20px;"></div>
-
-<div style="margin-top:10px;">
-    <input type="text" id="chat-input" placeholder="Type a message..." style="width:70%;">
-    <button id="chat-send">Send</button>
-</div>
-
 
 <script>
     const roomId= "{{ room.id }}";
@@ -27,13 +47,20 @@
         console.log("✅ WebSocket connected successfully");
     };
 
-    socket.onmessage=function(event){
-    const data=JSON.parse(event.data);
-    if (data.message){
-    const chatBox=document.getElementById("chat-box");
-    chatBox.innerHTML+=`<p><b>${data.sender}:</b>${data.message}</p>`;
+socket.onmessage = function(event) {
+    const data = JSON.parse(event.data);
+    if (data.message) {
+        const chatBox = document.getElementById("chat-box");
+        chatBox.innerHTML += `
+            <div class="chat-message">
+                <span class="sender">${data.sender}</span>
+                <span class="text">${data.message}</span>
+            </div>
+        `;
+        chatBox.scrollTop = chatBox.scrollHeight;
     }
-    }
+};
+
 
     document.getElementById("chat-send").onclick=function(){
         const input=document.getElementById("chat-input");
@@ -44,11 +71,11 @@
     }
 
     socket.onclose = function (event) {
-        console.log("❌ WebSocket closed", event);
+        console.log(" WebSocket closed", event);
     };
 
     socket.onerror = function (error) {
-        console.log("⚠️ WebSocket error", error);
+        console.log(" WebSocket error", error);
     };
 
 

@@ -20,8 +20,8 @@ class PrivateChatConsumer(AsyncWebsocketConsumer):
 
         await self.send(text_data=json.dumps({
             "type":"chat_message",
-            "message":"Websocket connected succesfully",
-            "sender": "System",
+            "message":"Mention the course you are chatting about before starting chat",
+            "sender": "Skillcraft",
         }))
 
     async def receive(self,text_data):

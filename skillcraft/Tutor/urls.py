@@ -16,4 +16,5 @@ urlpatterns = [
     path('deletechapter/<int:id>',views.DeleteChapterView.as_view(),name='deletechapter'),
     path('editmodule/<int:id>',views.EditModuleView.as_view(),name='editmodule'),
     path('deletemodule/<int:id>',views.DeleteModuleView.as_view(),name='deletemodule'),
+    path('tutorreviews/',views.TutorReviewsView.as_view(),name='tutorreviews'),
 ]

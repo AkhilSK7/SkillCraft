@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="chat-list-page">
+    <div class="chat-list-box">
+        <h3 class="chat-list-title">Student Chats</h3>
+
+        {% if rooms %}
+            <ul class="chat-list">
+                {% for room in rooms %}
+                    <li class="chat-list-item">
+                        <span class="student-name">
+                            {{ room.student.username }}
+                        </span>
+
+                        <a href="{% url 'chat:tutor_chat' room.id %}" class="open-chat-btn">
+                            Open Chat
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="no-chat-text">No students have started a chat yet.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

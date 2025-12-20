@@ -158,3 +158,10 @@ class DeleteModuleView(TutorAccessMixin,View):
         m=Module.objects.get(id=id)
         m.delete()
         return redirect('tutor:managecourse',user_id=user_id, id=m.chapter.course.id)
+
+
+class TutorReviewsView(TutorAccessMixin,View):
+    def get(self,request,user_id):
+        courses=Course.objects.filter(Tutor=self.t).prefetch_related('reviews')
+        context={'courses':courses}
+        return render(request,'tutor/tutorreviews.html',context)

@@ -114,15 +114,20 @@
                 <p><strong class="text-warning">Tutor:</strong> {{ course.Tutor.name }}</p>
                 <p><strong class="text-warning">Rating:</strong> {{ course.rating }}</p>
                 <p><strong class="text-warning">Students:</strong> {{ students }}</p>
-{% if not is_enrolled %}
 
+{% if  is_enrolled %}
+                <a href="{% url 'chat:chat_room' tutor_id=course.Tutor.id course_id=course.id %}" class="btn edit-course-btn w-100 mt-3">
+                    Chat with tutor
+                </a>
+{% else %}
                 <a href="{% url 'courses:enroll' course.id %}" class="btn edit-course-btn w-100 mt-3">
                     Buy Course
                 </a>
 {% endif %}
                 {% if form %}
-                <h3 class="text-warning text-center">Leave your impression</h3>
-                <div class="d-flex justify-content-center align-items-center text-center border">
+                <h3 class="text-warning text-center fs-3 fw-bold mt-3">Leave your impression</h3>
+               <div class="review-form-box">
+
 
                     <form method="post">
                     {% csrf_token %}
