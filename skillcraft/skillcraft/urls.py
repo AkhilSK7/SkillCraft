@@ -25,6 +25,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('tutor/<int:user_id>/',include('Tutor.urls')),
     path('courses/',include('courses.urls')),
+    path('chat/',include('chat.urls'))
 ]
 
 if settings.DEBUG:

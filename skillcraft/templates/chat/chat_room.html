@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-4 text-light">
+    <h2>Chat Page</h2>
+
+    <p><strong>Room ID:</strong> {{ room.id }}</p>
+    <p><strong>Tutor Name:</strong> {{ tutor.name }}</p>
+    <p><strong>Tutor Username:</strong> {{ tutor.user.username }}</p>
+
+</div>
+
+<div id="chat-box" class="text-light" style="margin-top:20px;"></div>
+
+<div style="margin-top:10px;">
+    <input type="text" id="chat-input" placeholder="Type a message..." style="width:70%;">
+    <button id="chat-send">Send</button>
+</div>
+
+
+<script>
+    const roomId= "{{ room.id }}";
+    const socket=new WebSocket("ws://"+ window.location.host+"/ws/chat/"+roomId+"/")
+
+        socket.onopen = function () {
+        console.log("✅ WebSocket connected successfully");
+    };
+
+    socket.onmessage=function(event){
+    const data=JSON.parse(event.data);
+    if (data.message){
+    const chatBox=document.getElementById("chat-box");
+    chatBox.innerHTML+=`<p><b>${data.sender}:</b>${data.message}</p>`;
+    }
+    }
+
+    document.getElementById("chat-send").onclick=function(){
+        const input=document.getElementById("chat-input");
+        const message=input.value;
+        socket.send(JSON.stringify({"message":message}));
+        input.value="";
+
+    }
+
+    socket.onclose = function (event) {
+        console.log("❌ WebSocket closed", event);
+    };
+
+    socket.onerror = function (error) {
+        console.log("⚠️ WebSocket error", error);
+    };
+
+
+</script>
+
+{% endblock %}

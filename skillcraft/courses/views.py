@@ -30,7 +30,7 @@ class EnrolledUserMixin(LoginRequiredMixin,UserPassesTestMixin):
         return Enroll.objects.filter(course=self.c,user=self.request.user,is_enrolled=True).exists()
 
     def handle_no_permission(self):
-        return redirect("courses:course", pk=self.c.id)
+        return redirect("courses:course", id=self.c.id)
 # Create your views here.
 
 class CategoryView(ListView):
@@ -81,15 +81,15 @@ class CourseDetailView(View):
     def post(self,request, id):
         form_instance=ReviewForm(request.POST)
         if form_instance.is_valid():
-            c=form_instance.save(commit=False)
-            c.course=self.c
-            c.user=request.user
-            c.save()
+            co=form_instance.save(commit=False)
+            co.course=self.c
+            co.user=request.user
+            co.save()
             rating=Review.objects.filter(course=self.c).values_list("rating",flat=True)
             if len(rating) > 0:
                 self.c.rating=sum(rating)/len(rating)
                 self.c.save()
-            return redirect('courses:course', pk=self.c.id)
+            return redirect('courses:course', id=self.c.id)
 
 
 class PlayvideoView(EnrolledUserMixin,View):
