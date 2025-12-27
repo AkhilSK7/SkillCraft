@@ -95,6 +95,7 @@
 
             </div>
         {% endfor %}
+        <a class="btn btn-warning w-100" href="{% url 'courses:reviews' course.id %}">Show all reviews</a>
     {% else %}
         <p class="text-white">No reviews yet for this course.</p>
     {% endif %}

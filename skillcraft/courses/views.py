@@ -65,7 +65,7 @@ class CourseDetailView(View):
         return super().dispatch(request,*args,**kwargs)
 
     def get(self, request, id):
-        reviews = Review.objects.filter(course=self.c)
+        reviews = Review.objects.filter(course=self.c)[:2]
         students=Enroll.objects.filter(course=self.c,is_enrolled=True).count()
         context = {"course": self.c, "reviews": reviews, "students": students}
         if request.user.is_authenticated:
@@ -146,3 +146,9 @@ class EnrolledCoursesView(View):
         e = Enroll.objects.filter(user=u,is_enrolled=True)
         context={'enrolled':e}
         return render(request,'courses/enrolledcourses.html',context)
+class ShowAllReviewsView(View):
+    def get(self,request,id):
+        course=get_object_or_404(Course.objects.prefetch_related('reviews'),id=id)
+        context={'course':course}
+        return render(request,'courses/reviews.html',context)
+

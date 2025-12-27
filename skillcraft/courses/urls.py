@@ -12,5 +12,6 @@ urlpatterns = [
     path('document/<int:cid> <int:mid>', views.DownloadDocumentView.as_view(), name="document"),
     path('enroll/<int:id>',views.EnrollView.as_view(),name="enroll"),
     path('paymentsuccess/<str:i>',views.PaymentSuccessView.as_view(),name="complete"),
-    path('enrolledcourses/',views.EnrolledCoursesView.as_view(),name="enrolledcourses")
+    path('enrolledcourses/',views.EnrolledCoursesView.as_view(),name="enrolledcourses"),
+    path('reviews/<int:id>',views.ShowAllReviewsView.as_view(),name='reviews'),
 ]
